@@ -29,9 +29,9 @@ const Catalogue = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Products');
   const [selectedCapacity, setSelectedCapacity] = useState('All');
   const [selectedBrand, setSelectedBrand] = useState('All Brands');
-  
-  // Enquiry Modal States
-  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  // Enquiry Form States
+  const [selectedProductName, setSelectedProductName] = useState('');
   const [emailStatus, setEmailStatus] = useState('idle');
   const formRef = useRef();
 
@@ -46,10 +46,7 @@ const Catalogue = () => {
     setSelectedBrand('All Brands');
   };
 
-  const closeEnquiryModal = () => {
-    setSelectedProduct(null);
-    setEmailStatus('idle');
-  };
+
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -79,7 +76,7 @@ const Catalogue = () => {
       if (selectedCategory !== 'All Products' && p.category !== selectedCategory) {
         return false;
       }
-      
+
       // 2. Secondary Capacity Filter (Only for Domestic RO)
       if (selectedCategory === 'Domestic RO Systems' && selectedCapacity !== 'All') {
         if (p.capacity !== selectedCapacity) return false;
@@ -99,14 +96,14 @@ const Catalogue = () => {
       {/* Banner */}
       <div className="bg-text text-white py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
             Our Product Catalogue
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -118,11 +115,11 @@ const Catalogue = () => {
       </div>
 
       {/* Catalogue Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        
+      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
         {/* Sticky Filters Section */}
         <div className="sticky top-20 z-40 bg-bg/90 backdrop-blur-md py-4 border-b border-gray-200 mb-8">
-          
+
           {/* Main Category Filter */}
           <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-4">
             {categories.map((cat) => (
@@ -130,8 +127,8 @@ const Catalogue = () => {
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
                 className={`px-4 py-2.5 md:px-6 md:py-3 rounded-full font-semibold transition-all duration-300 shadow-sm text-sm md:text-base
-                  ${selectedCategory === cat 
-                    ? 'bg-primary text-white shadow-primary/30 shadow-md scale-105' 
+                  ${selectedCategory === cat
+                    ? 'bg-primary text-white shadow-primary/30 shadow-md scale-105'
                     : 'bg-white text-gray-600 hover:bg-primary/10 hover:text-primary'
                   }`}
               >
@@ -143,7 +140,7 @@ const Catalogue = () => {
           <AnimatePresence>
             {/* Secondary Capacity Filter */}
             {selectedCategory === 'Domestic RO Systems' && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
@@ -171,7 +168,7 @@ const Catalogue = () => {
 
             {/* Tertiary Brand Filter */}
             {selectedCategory === 'Domestic RO Systems' && selectedCapacity !== 'All' && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
@@ -199,13 +196,13 @@ const Catalogue = () => {
         </div>
 
         {/* Product Grid */}
-        <motion.div 
+        <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-8"
         >
           <AnimatePresence>
             {filteredProducts.map((product) => (
-              <motion.div 
+              <motion.div
                 key={product.id}
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -214,13 +211,13 @@ const Catalogue = () => {
                 transition={{ duration: 0.3 }}
                 className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col"
               >
-                <div className="h-56 overflow-hidden relative bg-gray-50 flex items-center justify-center p-6">
+                <div className="h-56 overflow-hidden relative flex items-center justify-center p-4">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 mix-blend-multiply"
                   />
-                  <div className="absolute top-4 left-4 flex flex-col gap-2">
+                  <div className="absolute top-4 left-4 flex flex-col items-start gap-2">
                     <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary rounded-full shadow-sm border border-primary/20">
                       {product.brand}
                     </span>
@@ -229,42 +226,31 @@ const Catalogue = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-lg font-bold text-text mb-2 line-clamp-2" title={product.name}>{product.name}</h3>
-                  <p className="text-sm text-gray-500 mb-4 line-clamp-2">{product.description}</p>
-                  
+                <div className="p-3 flex flex-col flex-grow">
+                  <h3 className="text-md font-bold text-text mb-2 line-clamp-2" title={product.name}>{product.name}</h3>
                   <div className="mt-auto pt-4 border-t border-gray-100">
-                    <div className="flex justify-between items-center mb-4">
+                    <div className="flex justify-between items-center mb-2">
                       <span className="text-sm text-gray-500">Price</span>
                       <span className={`font-bold ${product.price ? 'text-text text-lg' : 'text-primary text-sm'}`}>
                         {product.price ? product.price : 'Price on Request'}
                       </span>
                     </div>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setSelectedProduct(product);
-                      }}
-                      className="w-full bg-primary/10 text-primary font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-primary hover:text-white transition-all duration-300"
-                    >
-                      <ShoppingCart size={18} />
-                      Enquire Now
-                    </button>
+
                   </div>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
-        
+
         {filteredProducts.length === 0 && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-center py-20 text-gray-500"
           >
             <p className="text-xl">No products found matching your filters.</p>
-            <button 
+            <button
               onClick={() => handleCategoryChange('All Products')}
               className="mt-4 text-primary font-medium hover:underline"
             >
@@ -274,117 +260,121 @@ const Catalogue = () => {
         )}
       </div>
 
-      {/* Enquiry Modal */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-            <motion.div 
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden relative"
-            >
-              <button 
-                onClick={closeEnquiryModal}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors z-10 bg-white/80 p-1.5 rounded-full"
-              >
-                <X size={24} />
-              </button>
-              
-              <div className="p-6 bg-gray-50 border-b border-gray-100 flex items-center gap-4">
-                 <img src={selectedProduct.image} alt={selectedProduct.name} className="w-16 h-16 object-contain rounded bg-white p-1 shadow-sm mix-blend-multiply" />
-                 <div>
-                   <h3 className="text-lg font-bold text-text line-clamp-1">{selectedProduct.name}</h3>
-                   <p className="text-sm text-primary font-semibold">{selectedProduct.capacity}</p>
-                 </div>
-              </div>
-
-              <div className="p-6">
-                {emailStatus === 'success' ? (
-                  <motion.div 
-                    initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                    className="text-center py-8"
-                  >
-                    <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Send size={32} />
-                    </div>
-                    <h4 className="text-2xl font-bold text-text mb-2">Enquiry Sent!</h4>
-                    <p className="text-gray-600 mb-6">Thank you for your interest in {selectedProduct.name}. Our team will contact you shortly.</p>
-                    <button 
-                      onClick={closeEnquiryModal}
-                      className="bg-primary text-white font-bold py-3 px-8 rounded-xl hover:bg-primary-light transition-colors"
-                    >
-                      Close
-                    </button>
-                  </motion.div>
-                ) : (
-                  <form ref={formRef} onSubmit={sendEmail} className="flex flex-col gap-4">
-                    <input type="hidden" name="product_name" value={selectedProduct.name} />
-                    <input type="hidden" name="product_category" value={selectedProduct.category} />
-                    <input type="hidden" name="product_capacity" value={selectedProduct.capacity} />
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-text mb-1">Full Name</label>
-                      <input
-                        type="text"
-                        name="user_name"
-                        required
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                        placeholder="John Doe"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-text mb-1">Phone Number</label>
-                      <input
-                        type="tel"
-                        name="user_phone"
-                        required
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                        placeholder="+91 98765 43210"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-text mb-1">Email Address</label>
-                      <input
-                        type="email"
-                        name="user_email"
-                        required
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-text mb-1">Message (Optional)</label>
-                      <textarea
-                        name="message"
-                        rows="2"
-                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
-                        placeholder={`I would like to know more about ${selectedProduct.name}.`}
-                      ></textarea>
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={emailStatus === 'loading'}
-                      className="w-full mt-2 bg-primary hover:bg-primary-light text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
-                    >
-                      {emailStatus === 'loading' ? 'Sending Enquiry...' : (
-                        <>Send Enquiry <Send size={18} /></>
-                      )}
-                    </button>
-                    {emailStatus === 'error' && (
-                      <p className="text-red-500 text-sm text-center">Failed to send. Please try again.</p>
-                    )}
-                  </form>
-                )}
-              </div>
-            </motion.div>
+      {/* Enquiry Form Section */}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="bg-primary/5 p-6 md:p-8 text-center border-b border-gray-100">
+            <h2 className="text-3xl font-bold text-text mb-2">Enquire Now</h2>
+            <p className="text-gray-600">Interested in our products? Fill out the form below and we'll get back to you.</p>
           </div>
-        )}
-      </AnimatePresence>
+          <div className="p-6 md:p-8">
+            {emailStatus === 'success' ? (
+              <motion.div
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                className="text-center py-8"
+              >
+                <div className="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Send size={32} />
+                </div>
+                <h4 className="text-2xl font-bold text-text mb-2">Enquiry Sent!</h4>
+                <p className="text-gray-600 mb-6">Thank you for your interest. Our team will contact you shortly.</p>
+                <button
+                  onClick={() => {
+                    setEmailStatus('idle');
+                    setSelectedProductName('');
+                  }}
+                  className="bg-primary text-white font-bold py-3 px-8 rounded-xl hover:bg-primary-light transition-colors"
+                >
+                  Send Another Enquiry
+                </button>
+              </motion.div>
+            ) : (
+              <form ref={formRef} onSubmit={sendEmail} className="flex flex-col gap-5">
+                {selectedProductName && (
+                  <>
+                    <input type="hidden" name="product_category" value={products.find(p => p.name === selectedProductName)?.category || ''} />
+                    <input type="hidden" name="product_capacity" value={products.find(p => p.name === selectedProductName)?.capacity || ''} />
+                  </>
+                )}
+
+                <div>
+                  <label className="block text-sm font-medium text-text mb-1">Select Product</label>
+                  <select
+                    name="product_name"
+                    value={selectedProductName}
+                    onChange={(e) => setSelectedProductName(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                  >
+                    <option value="" disabled>Select a product to enquire about...</option>
+                    {products.map(p => (
+                      <option key={p.id} value={p.name}>{p.name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-medium text-text mb-1">Full Name</label>
+                    <input
+                      type="text"
+                      name="user_name"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-text mb-1">Phone Number</label>
+                    <input
+                      type="tel"
+                      name="user_phone"
+                      required
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                      placeholder="+91 98765 43210"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-text mb-1">Email Address</label>
+                  <input
+                    type="email"
+                    name="user_email"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    placeholder="john@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-text mb-1">Message (Optional)</label>
+                  <textarea
+                    name="message"
+                    rows="3"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"
+                    placeholder="I would like to know more about the pricing and installation process."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={emailStatus === 'loading'}
+                  className="w-full mt-2 bg-primary hover:bg-primary-light text-white font-bold py-4 px-4 rounded-xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+                >
+                  {emailStatus === 'loading' ? 'Sending Enquiry...' : (
+                    <>Send Enquiry <Send size={18} /></>
+                  )}
+                </button>
+                {emailStatus === 'error' && (
+                  <p className="text-red-500 text-sm text-center">Failed to send. Please try again.</p>
+                )}
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
 
     </div>
   );
