@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import heroBanner from "../../assets/images/hero-banner.png";
 import {

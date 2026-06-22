@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { Filter, X, Send, ShoppingCart } from 'lucide-react';
+import { Filter, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import { products } from '../data/products';

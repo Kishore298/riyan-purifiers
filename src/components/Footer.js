@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MessageCircle, MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {

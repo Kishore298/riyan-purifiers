@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { Phone, Mail, Clock, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
