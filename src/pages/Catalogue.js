@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Filter, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -34,6 +34,11 @@ const Catalogue = () => {
   const [selectedProductName, setSelectedProductName] = useState('');
   const [emailStatus, setEmailStatus] = useState('idle');
   const formRef = useRef();
+  const [firstLoad, setFirstLoad] = useState(true);
+
+  useEffect(() => {
+    setFirstLoad(false);
+  }, []);
 
   const handleCategoryChange = (cat) => {
     setSelectedCategory(cat);
@@ -99,7 +104,7 @@ const Catalogue = () => {
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-3xl md:text-5xl font-bold mb-4"
           >
             Our Product Catalogue
           </motion.h1>
@@ -107,7 +112,7 @@ const Catalogue = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-300 max-w-2xl mx-auto"
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
           >
             Explore our wide range of advanced water purifiers designed to provide safe, clean, and healthy drinking water.
           </motion.p>
@@ -115,13 +120,13 @@ const Catalogue = () => {
       </div>
 
       {/* Catalogue Content */}
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-12">
 
         {/* Sticky Filters Section */}
-        <div className="sticky top-20 z-40 bg-bg/90 backdrop-blur-md py-4 border-b border-gray-200 mb-8">
+        <div className="sticky top-20 z-40 bg-bg/90 backdrop-blur-md py-2 md:py-4 border-b border-gray-200 mb-4 md:mb-8">
 
           {/* Main Category Filter */}
-          <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-4">
+          <div className="flex flex-wrap gap-2 md:gap-3 justify-center mb-2 md:mb-4">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -196,52 +201,56 @@ const Catalogue = () => {
         </div>
 
         {/* Product Grid */}
-        <motion.div
-          layout
+        <div
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-8"
         >
-          <AnimatePresence>
-            {filteredProducts.map((product) => (
-              <motion.div
-                key={product.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-primary/30 transition-all duration-300 group flex flex-col"
-              >
-                <div className="h-56 overflow-hidden relative flex items-center justify-center p-4">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 mix-blend-multiply"
-                  />
-                  <div className="absolute top-4 left-4 flex flex-col items-start gap-2">
-                    <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary rounded-full shadow-sm border border-primary/20">
-                      {product.brand}
-                    </span>
-                    <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold text-text rounded-full shadow-sm border border-gray-200">
-                      {product.capacity}
-                    </span>
-                  </div>
+          {filteredProducts.map((product, index) => (
+            <div
+              key={product.id}
+              className={`bg-white/70 backdrop-blur-sm rounded-3xl border border-gray-100 overflow-hidden group flex flex-col product-card ${firstLoad ? "fade-up" : ""}`}
+              style={{ animationDelay: firstLoad ? `${index * 50}ms` : "0ms" }}
+            >
+              <div className="h-56 overflow-hidden relative flex items-center justify-center p-4">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 mix-blend-multiply"
+                />
+                <div className="absolute top-4 left-4 flex flex-col items-start gap-2">
+                  <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold text-primary rounded-full shadow-sm border border-primary/20">
+                    {product.brand}
+                  </span>
+                  <span className="bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-bold text-text rounded-full shadow-sm border border-gray-200">
+                    {product.capacity}
+                  </span>
                 </div>
-                <div className="p-3 flex flex-col flex-grow">
-                  <h3 className="text-md font-bold text-text mb-2 line-clamp-2" title={product.name}>{product.name}</h3>
-                  <div className="mt-auto pt-4 border-t border-gray-100">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-gray-500">Price</span>
-                      <span className={`font-bold ${product.price ? 'text-text text-lg' : 'text-primary text-sm'}`}>
-                        {product.price ? product.price : 'Price on Request'}
-                      </span>
-                    </div>
+              </div>
+              <div className="p-3 flex flex-col flex-grow">
+                <h3 className="text-md font-bold text-text mb-2 line-clamp-2" title={product.name}>{product.name}</h3>
+                <div className="mt-auto pt-4 border-t border-gray-100">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm text-gray-500">Price</span>
+                    {product.price ? (
+                      <span className="font-bold text-text text-lg">{product.price}</span>
+                    ) : (
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setSelectedProductName(product.name);
+                          document.getElementById('enquiry-form')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                        className="font-bold text-primary text-sm hover:underline hover:text-primary-light transition-colors"
+                      >
+                        Price on Request
+                      </button>
+                    )}
+                  </div>
 
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              </div>
+            </div>
+          ))}
+        </div>
 
         {filteredProducts.length === 0 && (
           <motion.div
@@ -258,10 +267,27 @@ const Catalogue = () => {
             </button>
           </motion.div>
         )}
+
+        {/* More Products Notice */}
+        <div className="mt-16 text-center bg-primary/5 rounded-3xl p-3 md:p-8 border border-primary/10 max-w-4xl mx-auto">
+          <h3 className="text-lg md:text-2xl font-bold text-text mb-2">Didn't find what you're looking for?</h3>
+          <p className="text-gray-600 mb-3 md:mb-6">
+            We have an extensive range of products available. Reach out to us with your specific requirements and we'll provide the perfect solution.
+          </p>
+          <button
+            onClick={() => {
+              setSelectedProductName('Others');
+              document.getElementById('enquiry-form')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="bg-primary text-white font-semibold py-3 px-8 rounded-full shadow-md hover:bg-primary-light hover:shadow-lg transition-all"
+          >
+            Contact Us for More
+          </button>
+        </div>
       </div>
 
       {/* Enquiry Form Section */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div id="enquiry-form" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
           <div className="bg-primary/5 p-6 md:p-8 text-center border-b border-gray-100">
             <h2 className="text-3xl font-bold text-text mb-2">Enquire Now</h2>
@@ -310,6 +336,7 @@ const Catalogue = () => {
                     {products.map(p => (
                       <option key={p.id} value={p.name}>{p.name}</option>
                     ))}
+                    <option value="Others">Others</option>
                   </select>
                 </div>
 

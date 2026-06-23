@@ -6,7 +6,7 @@ const AboutUs = () => {
   return (
     <section id="about" className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Left Side: Image */}
           <motion.div
@@ -20,7 +20,7 @@ const AboutUs = () => {
               <img
                 src={experience}
                 alt="About"
-                className="w-[75%] mx-auto rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
+                className="w-[90%] md:w-[75%] mx-auto rounded-[20px] shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
               />
             </div>
 
@@ -30,10 +30,10 @@ const AboutUs = () => {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="absolute -bottom-8 -right-0 bg-primary rounded-lg p-4 flex flex-col items-center justify-center"
+              className="absolute -bottom-12 md:-bottom-8 -right-6 md:-right-0 bg-primary rounded-lg p-1.5 md:p-4 flex flex-col items-center justify-center"
             >
-              <span className="text-4xl font-extrabold text-white mb-1">20+</span>
-              <span className="text-lg font-bold text-white uppercase tracking-wider text-center">Years<br />Experience</span>
+              <span className="text-lg md:text-2xl lg:text-3xl font-extrabold text-white mb-1">20+</span>
+              <span className="text-base font-bold text-white uppercase tracking-wider text-center">Years<br />Experience</span>
             </motion.div>
           </motion.div>
 
@@ -43,15 +43,16 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
           >
-            <h3 className="text-primary font-bold tracking-widest uppercase mb-4 flex items-center gap-2">
-              <span className="w-8 h-1 bg-primary rounded-full"></span>
+            <h3 className="text-primary font-bold tracking-widest uppercase mb-4 flex items-center justify-center lg:justify-start gap-2">
+              <span className="w-8 h-1 bg-primary rounded-full hidden lg:block"></span>
               About Us
             </h3>
 
-            <h2 className="text-4xl md:text-5xl font-extrabold text-text mb-6 leading-tight">
-              20 Years of Experience <br />
-              <span className="text-gray-500">in the Water Purifier Industry</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-text mb-6 leading-tight">
+              20 Years of Experience
+              <span className="text-gray-500"> in the Water Purifier Industry</span>
             </h2>
 
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
@@ -63,7 +64,7 @@ const AboutUs = () => {
             </p>
 
             {/* Feature Pills */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <div className="glass-pill !bg-bg !border-primary/20">
                 RO + UV + TDS
               </div>

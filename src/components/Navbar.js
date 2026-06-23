@@ -44,7 +44,7 @@ const Navbar = () => {
             <img src={logo} alt="Logo" className="h-36 w-auto" />
 
             <div className="flex items-baseline">
-              <span className="text-primary text-3xl">Riyan Water</span>
+              <span className="text-3xl">Riyan</span>
               <span className="text-3xl ml-2">Purifiers</span>
             </div>
           </Link>
@@ -67,7 +67,7 @@ const Navbar = () => {
               })}
             </div>
             <div className="flex items-center gap-4 border-l border-gray-200 pl-6">
-              <a href="tel:+910000000000" className="flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium">
+              <a href="tel:+917550112122" className="flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium">
                 <Phone size={18} />
                 <span>Call Us</span>
               </a>

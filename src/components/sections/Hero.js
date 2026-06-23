@@ -11,7 +11,7 @@ import {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[80vh] pt-24 pb-12 flex flex-col justify-center overflow-hidden bg-bg">
+    <section className="relative  min-h-[60vh] md:min-h-[80vh] pt-24 md:pt-24 pb-12 flex flex-col justify-center overflow-hidden bg-bg">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-64 h-64 bg-primary-light/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-ripple"></div>
@@ -43,7 +43,7 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center flex-grow mb-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 items-center flex-grow mb-2">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -64,11 +64,11 @@ const Hero = () => {
               <span className="text-gradient">Sales, Installation, Repair & AMC</span> Services
             </h1>
 
-            <div className="flex flex-wrap gap-4">
-              <a href="/catalogue" className="bg-primary hover:bg-primary-light text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/30 transition-all transform hover:-translate-y-1 flex items-center gap-2 text-lg">
+            <div className="flex flex-wrap gap-4 md:gap-4">
+              <a href="/catalogue" className="bg-primary hover:bg-primary-light text-white font-bold py-3 px-4 md:py-4 md:px-8 rounded-full shadow-lg shadow-primary/30 transition-all transform hover:-translate-y-1 flex items-center gap-2 text-base md:text-lg">
                 Explore Products <ArrowRight size={20} />
               </a>
-              <a href="#contact" className="glass-panel hover:bg-white/80 text-text font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center text-lg">
+              <a href="#contact" className="glass-panel hover:bg-white/80 text-text font-bold py-3 px-4 md:py-4 md:px-8 rounded-full transition-all flex items-center justify-center text-base md:text-lg">
                 Contact Us
               </a>
             </div>
@@ -89,10 +89,10 @@ const Hero = () => {
             />
 
             {/* Glassmorphism card attached to image */}
-            <div className="absolute -left-8 top-0 glass-panel p-4 animate-fade-up" style={{ animationDelay: '1s' }}>
-              <div className="flex items-center gap-3">
-                <div className="bg-emerald-100 p-2 rounded-full text-emerald-600">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="absolute left-0 sm:-left-8 top-4 sm:top-0 glass-panel p-2 sm:p-4 scale-90 sm:scale-100 origin-top-left animate-fade-up z-20" style={{ animationDelay: '1s' }}>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="bg-emerald-100 p-1.5 sm:p-2 rounded-full text-emerald-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -148,7 +148,7 @@ const Hero = () => {
           </a>
 
           <a
-            href="https://api.whatsapp.com/message/NSXTEJO2OGDFJ1?autoload=1&app_absent=0"
+            href="https://wa.me/917550112122"
             target="_blank"
             rel="noopener noreferrer"
             className="glass-pill group transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:border-transparent"

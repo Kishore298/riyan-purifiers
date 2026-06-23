@@ -45,9 +45,10 @@ const Achievements = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
           >
-            <h3 className="text-primary font-bold tracking-widest uppercase mb-4 flex items-center gap-2">
-              <span className="w-8 h-1 bg-primary rounded-full"></span>
+            <h3 className="text-primary font-bold tracking-widest uppercase mb-4 flex items-center justify-center lg:justify-start gap-2">
+              <span className="w-8 h-1 bg-primary rounded-full hidden lg:block"></span>
               Our Achievements
             </h3>
 
@@ -55,26 +56,26 @@ const Achievements = () => {
               Numbers That Speak For Us
             </h2>
 
-            <div className="space-y-10">
-              <div>
-                <h4 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400 mb-2 flex items-baseline">
-                  <Counter from={0} to={6958} /> <span className="text-4xl">+</span>
+            <div className="space-y-10 flex flex-col items-center lg:items-start">
+              <div className="w-full text-center lg:text-left">
+                <h4 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400 mb-2 flex items-baseline justify-center lg:justify-start">
+                  <Counter from={0} to={6958} /> <span className="text-4xl ml-1">+</span>
                 </h4>
-                <p className="text-xl text-gray-600 font-medium uppercase tracking-wider">Trusted Clients</p>
+                <p className="text-lg md:text-xl text-gray-600 font-medium uppercase tracking-wider">Trusted Clients</p>
               </div>
 
-              <div>
-                <h4 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400 mb-2 flex items-baseline">
-                  <Counter from={0} to={9953} /> <span className="text-4xl">+</span>
+              <div className="w-full text-center lg:text-left">
+                <h4 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400 mb-2 flex items-baseline justify-center lg:justify-start">
+                  <Counter from={0} to={9953} /> <span className="text-4xl ml-1">+</span>
                 </h4>
-                <p className="text-xl text-gray-600 font-medium uppercase tracking-wider">Total Installations</p>
+                <p className="text-lg md:text-xl text-gray-600 font-medium uppercase tracking-wider">Total Installations</p>
               </div>
 
-              <div>
-                <h4 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400 mb-2 flex items-baseline">
-                  <Counter from={0} to={8500} /> <span className="text-4xl">+</span>
+              <div className="w-full text-center lg:text-left">
+                <h4 className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400 mb-2 flex items-baseline justify-center lg:justify-start">
+                  <Counter from={0} to={8500} /> <span className="text-4xl ml-1">+</span>
                 </h4>
-                <p className="text-xl text-gray-600 font-medium uppercase tracking-wider">Total Sales & Services</p>
+                <p className="text-lg md:text-xl text-gray-600 font-medium uppercase tracking-wider">Total Sales & Services</p>
               </div>
             </div>
           </motion.div>
@@ -91,12 +92,11 @@ const Achievements = () => {
               <img
                 src={numbers}
                 alt="Our Technicians"
-                className="w-full h-[600px] object-cover"
+                className="w-full h-[400px] md:h-[600px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent mix-blend-overlay"></div>
             </div>
 
-            {/* Glass Floating Cards */}
             <motion.div
               animate={{
                 y: [0, -12, 0]
@@ -106,14 +106,14 @@ const Achievements = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute top-10 -left-10 glass-panel !bg-white/90 p-4 flex items-center gap-4"
+              className="absolute top-4 sm:top-10 left-0 sm:-left-10 glass-panel !bg-white/90 p-2 sm:p-4 flex items-center gap-2 sm:gap-4 scale-90 sm:scale-100 origin-top-left z-10 shadow-lg"
             >
-              <div className="bg-primary/20 p-3 rounded-xl text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+              <div className="bg-primary/20 p-2 sm:p-3 rounded-xl text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
               </div>
               <div>
-                <p className="text-xl font-bold text-text">24/7</p>
-                <p className="text-sm text-gray-500 font-medium">Support</p>
+                <p className="text-lg sm:text-xl font-bold text-text">24/7</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium">Support</p>
               </div>
             </motion.div>
 
@@ -126,14 +126,14 @@ const Achievements = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute bottom-10 -right-10 glass-panel !bg-white/90 p-4 flex items-center gap-4"
+              className="absolute bottom-4 sm:bottom-10 right-0 sm:-right-10 glass-panel !bg-white/90 p-2 sm:p-4 flex items-center gap-2 sm:gap-4 scale-90 sm:scale-100 origin-bottom-right z-10 shadow-lg"
             >
-              <div className="bg-primary/20 p-3 rounded-xl text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+              <div className="bg-primary/20 p-2 sm:p-3 rounded-xl text-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
               </div>
               <div>
-                <p className="text-xl font-bold text-text">100%</p>
-                <p className="text-sm text-gray-500 font-medium">Guarantee</p>
+                <p className="text-lg sm:text-xl font-bold text-text">100%</p>
+                <p className="text-xs sm:text-sm text-gray-500 font-medium">Guarantee</p>
               </div>
             </motion.div>
 

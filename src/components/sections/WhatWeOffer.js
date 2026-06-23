@@ -31,18 +31,18 @@ const WhatWeOffer = () => {
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 rounded-l-full blur-3xl"></div>
 
-      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-full md:max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
         <div className="text-center mb-16">
           <h3 className="text-primary font-bold tracking-widest uppercase mb-4">What We Offer</h3>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-text">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-text">
             Professional Water Purifier Solutions
           </h2>
         </div>
 
         {/* Layout 2x2 Glass Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-4">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
@@ -52,11 +52,11 @@ const WhatWeOffer = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="glass-panel p-5 hover:shadow-2xl hover:border-primary/50 transition-all duration-300 group"
             >
-              <div className="bg-primary/10 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-primary/10 md:w-20 w-10 h-10 md:h-20 rounded-2xl flex items-center justify-center mb-3 md:mb-6 group-hover:scale-110 transition-transform duration-300">
                 {offer.icon}
               </div>
-              <h3 className="text-2xl font-bold text-text mb-4">{offer.title}</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-md md:text-2xl font-bold text-text mb-2 md:mb-4">{offer.title}</h3>
+              <p className="text-sm md:text-lg text-gray-600 leading-relaxed">
                 {offer.description}
               </p>
             </motion.div>

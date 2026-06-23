@@ -54,7 +54,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://api.whatsapp.com/message/NSXTEJO2OGDFJ1?autoload=1&app_absent=0"
+                href="https://wa.me/917550112122"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-pill group transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:border-transparent"
@@ -99,10 +99,10 @@ const Footer = () => {
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="text-primary flex-shrink-0" size={20} />
                 <a
-                  href="tel:+918438512282"
+                  href="tel:+917550112122"
                   className="hover:text-primary transition-colors"
                 >
-                  +91 8438512282
+                  +91 75501 12122
                 </a>
               </li>
 

@@ -60,8 +60,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-text mb-1">Phone & WhatsApp</h4>
-                  <p className="text-gray-600">+91 8438512282</p>
-                  <p className="text-gray-600">+91 9176868788</p>
+                  <p className="text-gray-600">+91 75501 12122</p>
                 </div>
               </div>
 
@@ -144,7 +143,7 @@ const ContactSection = () => {
                         name="user_phone"
                         required
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/50 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 75501 12122"
                       />
                     </div>
 

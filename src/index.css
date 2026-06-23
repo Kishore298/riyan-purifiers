@@ -10,6 +10,7 @@
   }
   body {
     @apply bg-bg text-text font-sans antialiased;
+    overflow-x: hidden;
   }
 }
 
@@ -43,4 +44,27 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #22c55e;
+}
+
+/* Product Card Animations */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -25,7 +25,7 @@ function App() {
         <Footer />
         {/* Floating WhatsApp Button */}
         <a
-          href="https://api.whatsapp.com/message/NSXTEJO2OGDFJ1?autoload=1&app_absent=0"
+          href="https://wa.me/917550112122"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[#25D366]/50 transition-all duration-300 z-50 flex items-center justify-center"
