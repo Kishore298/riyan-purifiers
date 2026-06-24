@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import heroBanner from "../../assets/images/hero-banner.png";
+import heroBanner from "../../assets/images/water-purifiers.png";
 import {
   FaInstagram,
   FaFacebookF,
@@ -11,7 +11,7 @@ import {
 
 const Hero = () => {
   return (
-    <section className="relative  min-h-[60vh] md:min-h-[80vh] pt-24 md:pt-24 pb-12 flex flex-col justify-center overflow-hidden bg-bg">
+    <section className="relative  min-h-[60vh] md:min-h-[70vh] pt-24 md:pt-24 pb-12 flex flex-col justify-center overflow-hidden bg-bg">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-10 w-64 h-64 bg-primary-light/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-ripple"></div>
@@ -42,7 +42,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col h-full">
+      <div className="max-w-[90%] md:max-w-[85%] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col h-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 items-center flex-grow mb-2">
           {/* Left Content */}
           <motion.div
@@ -85,7 +85,7 @@ const Hero = () => {
             <img
               src={heroBanner}
               alt="Premium Water Purifier"
-              className="relative z-10 w-full max-w-lg object-contain drop-shadow-2xl animate-fade-up"
+              className="relative z-10 w-full object-contain drop-shadow-2xl animate-fade-up"
             />
 
             {/* Glassmorphism card attached to image */}

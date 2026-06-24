@@ -24,12 +24,12 @@ const Terms = () => {
           <ul className="pl-5 mb-5 space-y-2 list-disc">
             <li className="mb-2"><strong>Affiliate</strong> means an entity that controls, is controlled by, or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
             <li className="mb-2"><strong>Country</strong> refers to: Tamil Nadu, India</li>
-            <li className="mb-2"><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in these Terms and Conditions) refers to Riyanrealtors</li>
+            <li className="mb-2"><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in these Terms and Conditions) refers to Riyan Purifiers</li>
             <li className="mb-2"><strong>Device</strong> means any device that can access the Service such as a computer, a cell phone or a digital tablet.</li>
             <li className="mb-2"><strong>Service</strong> refers to the Website.</li>
             <li className="mb-2"><strong>Terms and Conditions</strong> (also referred to as "Terms") means these Terms and Conditions, including any documents expressly incorporated by reference, which govern Your access to and use of the Service and form the entire agreement between You and the Company regarding the Service.</li>
             <li className="mb-2"><strong>Third-Party social media Service</strong> means any services or content (including data, information, products or services) provided by a third party that is displayed, included, made available, or linked to through the Service.</li>
-            <li className="mb-2"><strong>Website</strong> refers to Riyan Realtors, accessible from <a className="text-primary font-semibold hover:underline" href="https://riyanrealtors.com/" target="_blank" rel="noopener noreferrer">https://riyanrealtors.com/</a></li>
+            <li className="mb-2"><strong>Website</strong> refers to Riyan Purifiers, accessible from <a className="text-primary font-semibold hover:underline" href="https://riyanpurifiers.com/" target="_blank" rel="noopener noreferrer">https://riyanpurifiers.com/</a></li>
             <li className="mb-2"><strong>You</strong> mean the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>
           </ul>
         </div>
@@ -119,8 +119,8 @@ const Terms = () => {
           <h4 className="text-gray-900 font-medium text-lg mt-6 mb-3">Contact Us</h4>
           <p className="mb-4 text-justify">If you have any questions about these Terms and Conditions, You can contact us:</p>
           <ul className="space-y-2">
-            <li className="mb-2">By email: <a className="text-primary font-semibold hover:underline" href="mailto:riyanrealtorz@gmail.com">riyanrealtors@gmail.com</a></li>
-            <li className="mb-2">By visiting this page on our website: <a className="text-primary font-semibold hover:underline" href="https://riyanrealtors.com/" target="_blank" rel="noopener noreferrer">https://riyanrealtors.com/</a></li>
+            <li className="mb-2">By email: <a className="text-primary font-semibold hover:underline" href="mailto:contact@riyanpurifiers.com">contact@riyanpurifiers.com</a></li>
+            <li className="mb-2">By visiting this page on our website: <a className="text-primary font-semibold hover:underline" href="https://riyanpurifiers.com/" target="_blank" rel="noopener noreferrer">https://riyanpurifiers.com/</a></li>
           </ul>
         </div>
       </div>

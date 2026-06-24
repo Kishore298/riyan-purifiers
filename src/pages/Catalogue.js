@@ -57,14 +57,9 @@ const Catalogue = () => {
     e.preventDefault();
     setEmailStatus('loading');
 
-    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'mock_service_id';
-    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'mock_template_id';
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'mock_public_key';
-
-    if (serviceID === 'mock_service_id') {
-      setTimeout(() => setEmailStatus('success'), 2000);
-      return;
-    }
+    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateID = process.env.REACT_APP_EMAILJS_CATALOGUE_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
     emailjs.sendForm(serviceID, templateID, formRef.current, publicKey)
       .then(() => {

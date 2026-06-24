@@ -11,16 +11,9 @@ const ContactSection = () => {
     e.preventDefault();
     setStatus('loading');
 
-    // MOCK EMAILJS CONFIGURATION
-    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'mock_service_id';
-    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'mock_template_id';
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'mock_public_key';
-
-    if (serviceID === 'mock_service_id') {
-      // Simulate API call for mock
-      setTimeout(() => setStatus('success'), 2000);
-      return;
-    }
+    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateID = process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
     emailjs.sendForm(serviceID, templateID, form.current, publicKey)
       .then((result) => {
@@ -70,7 +63,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-text mb-1">Email Address</h4>
-                  <p className="text-gray-600">riyanrealtorz@gmail.com</p>
+                  <p className="text-gray-600">contact@riyanpurifiers.com</p>
                 </div>
               </div>
 
@@ -80,8 +73,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-text mb-1">Working Hours</h4>
-                  <p className="text-gray-600">Mon - Sat: 9:00 AM - 8:00 PM</p>
-                  <p className="text-gray-600">Sunday: Closed</p>
+                  <p className="text-gray-600">Mon - Sun: 9:00 AM - 8:00 PM</p>
                 </div>
               </div>
             </div>
