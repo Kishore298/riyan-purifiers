@@ -36,7 +36,7 @@ const WhatWeOffer = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h3 className="text-primary font-bold tracking-widest uppercase mb-4">What We Offer</h3>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-text">
+          <h2 className="text-xl md:text-4xl font-extrabold text-text">
             Professional Water Purifier Solutions
           </h2>
         </div>

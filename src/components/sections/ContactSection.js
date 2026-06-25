@@ -31,7 +31,7 @@ const ContactSection = () => {
 
         <div className="text-center mb-16">
           <h3 className="text-primary font-bold tracking-widest uppercase mb-4">Contact Us</h3>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-text">
+          <h2 className="text-xl md:text-4xl font-extrabold text-text">
             Get In Touch With Us
           </h2>
         </div>

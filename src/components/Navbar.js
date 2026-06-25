@@ -40,12 +40,12 @@ const Navbar = () => {
     <nav className="fixed w-full z-50 glass-panel !rounded-none border-t-0 border-x-0 !bg-white/80 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="font-bold text-text flex items-center gap-2">
-            <img src={logo} alt="Logo" className="h-36 w-auto" />
+          <Link to="/" className="font-bold text-text flex items-center gap-1 sm:gap-2">
+            <img src={logo} alt="Logo" className="h-16 sm:h-20 md:h-24 w-auto" />
 
             <div className="flex items-baseline">
-              <span className="text-3xl">Riyan</span>
-              <span className="text-3xl ml-2">Purifiers</span>
+              <span className="text-xl sm:text-2xl md:text-3xl">Riyan</span>
+              <span className="text-xl sm:text-2xl md:text-3xl ml-1 md:ml-2">Purifiers</span>
             </div>
           </Link>
 

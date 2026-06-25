@@ -50,7 +50,7 @@ const AboutUs = () => {
               About Us
             </h3>
 
-            <h2 className="text-3xl md:text-5xl font-extrabold text-text mb-6 leading-tight">
+            <h2 className="text-xl md:text-4xl font-extrabold text-text mb-6 leading-tight">
               20 Years of Experience
               <span className="text-gray-500"> in the Water Purifier Industry</span>
             </h2>

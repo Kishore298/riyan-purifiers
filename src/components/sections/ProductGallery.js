@@ -43,7 +43,7 @@ const ProductGallery = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-12">
         <div className="text-center">
           <h3 className="text-primary font-bold tracking-widest uppercase mb-4">Our Products</h3>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-text">
+          <h2 className="text-xl md:text-4xl font-extrabold text-text">
             Explore Our Product Range
           </h2>
         </div>
