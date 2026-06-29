@@ -119,7 +119,7 @@ const Terms = () => {
           <h4 className="text-gray-900 font-medium text-lg mt-6 mb-3">Contact Us</h4>
           <p className="mb-4 text-justify">If you have any questions about these Terms and Conditions, You can contact us:</p>
           <ul className="space-y-2">
-            <li className="mb-2">By email: <a className="text-primary font-semibold hover:underline" href="mailto:contact@riyanpurifiers.com">contact@riyanpurifiers.com</a></li>
+            <li className="mb-2">By email: <a className="text-primary font-semibold hover:underline" href="mailto:contact@riyanpurifiers.com" onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'Email' })}>contact@riyanpurifiers.com</a></li>
             <li className="mb-2">By visiting this page on our website: <a className="text-primary font-semibold hover:underline" href="https://riyanpurifiers.com/" target="_blank" rel="noopener noreferrer">https://riyanpurifiers.com/</a></li>
           </ul>
         </div>

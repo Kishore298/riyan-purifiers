@@ -57,6 +57,7 @@ const Footer = () => {
                 href="https://wa.me/917550112122"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'WhatsApp' })}
                 className="glass-pill group transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:border-transparent"
               >
                 <FaWhatsapp
@@ -100,6 +101,7 @@ const Footer = () => {
                 <Phone className="text-primary flex-shrink-0" size={20} />
                 <a
                   href="tel:+917550112122"
+                  onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'Phone' })}
                   className="hover:text-primary transition-colors"
                 >
                   +91 75501 12122
@@ -110,6 +112,7 @@ const Footer = () => {
                 <Mail className="text-primary flex-shrink-0" size={20} />
                 <a
                   href="mailto:contact@riyanpurifiers.com"
+                  onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'Email' })}
                   className="hover:text-primary transition-colors"
                 >
                   contact@riyanpurifiers.com

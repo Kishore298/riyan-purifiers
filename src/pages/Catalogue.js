@@ -64,6 +64,9 @@ const Catalogue = () => {
     emailjs.sendForm(serviceID, templateID, formRef.current, publicKey)
       .then(() => {
         setEmailStatus('success');
+        if (window.fbq) {
+          window.fbq('track', 'Lead', { form: 'Product Enquiry', product: selectedProductName });
+        }
       }, (error) => {
         setEmailStatus('error');
         console.error(error.text);
@@ -232,6 +235,9 @@ const Catalogue = () => {
                         onClick={(e) => {
                           e.preventDefault();
                           setSelectedProductName(product.name);
+                          if (window.fbq) {
+                            window.fbq('track', 'ViewContent', { content_name: product.name, content_category: product.category });
+                          }
                           document.getElementById('enquiry-form')?.scrollIntoView({ behavior: 'smooth' });
                         }}
                         className="font-bold text-primary text-sm hover:underline hover:text-primary-light transition-colors"

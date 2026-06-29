@@ -28,6 +28,7 @@ function App() {
           href="https://wa.me/917550112122"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'WhatsApp' })}
           className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-2xl hover:scale-110 hover:shadow-[#25D366]/50 transition-all duration-300 z-50 flex items-center justify-center"
           aria-label="Chat on WhatsApp"
         >

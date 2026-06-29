@@ -19,6 +19,9 @@ const ContactSection = () => {
       .then((result) => {
         setStatus('success');
         form.current.reset();
+        if (window.fbq) {
+          window.fbq('track', 'Contact');
+        }
       }, (error) => {
         setStatus('error');
         console.error(error.text);
@@ -53,7 +56,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-text mb-1">Phone & WhatsApp</h4>
-                  <p className="text-gray-600">+91 75501 12122</p>
+                  <a href="tel:+917550112122" onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'Phone' })} className="text-gray-600 hover:text-primary transition-colors">+91 75501 12122</a>
                 </div>
               </div>
 
@@ -63,7 +66,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-text mb-1">Email Address</h4>
-                  <p className="text-gray-600">contact@riyanpurifiers.com</p>
+                  <a href="mailto:contact@riyanpurifiers.com" onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'Email' })} className="text-gray-600 hover:text-primary transition-colors">contact@riyanpurifiers.com</a>
                 </div>
               </div>
 

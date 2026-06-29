@@ -67,7 +67,7 @@ const Navbar = () => {
               })}
             </div>
             <div className="flex items-center gap-4 border-l border-gray-200 pl-6">
-              <a href="tel:+917550112122" className="flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium">
+              <a href="tel:+917550112122" onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'Phone' })} className="flex items-center gap-2 text-primary hover:text-primary-light transition-colors font-medium">
                 <Phone size={18} />
                 <span>Call Us</span>
               </a>
@@ -106,7 +106,7 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <a href="tel:+918438512282" className="flex items-center gap-2 px-3 py-2 text-base font-medium text-primary hover:bg-bg rounded-md">
+            <a href="tel:+918438512282" onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'Phone' })} className="flex items-center gap-2 px-3 py-2 text-base font-medium text-primary hover:bg-bg rounded-md">
               <Phone size={18} />
               <span>Call Us</span>
             </a>

@@ -151,6 +151,7 @@ const Hero = () => {
             href="https://wa.me/917550112122"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => window.fbq && window.fbq('track', 'Contact', { method: 'WhatsApp' })}
             className="glass-pill group transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:border-transparent"
           >
             <FaWhatsapp
